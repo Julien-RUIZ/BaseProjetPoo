@@ -10,7 +10,7 @@ class Route extends DataTabRoute
     private $class;
     private $methode;
     private $id;
-    
+
     /**
      * Méthode globale qui va récupérer l'url passé à celui se trouvant dans le tableau
      * @return void
@@ -87,7 +87,6 @@ class Route extends DataTabRoute
      * @param $urlp
      * @return void
      */
-
     public function UrlIsNot($urlp){
         if(!in_array($urlp, $this->urlTab)) {
             echo 'il n\'y a pas l\'url dans le tableau, faire une 404';
@@ -102,7 +101,6 @@ class Route extends DataTabRoute
     public function NoEndSlash($urlp){
         if(!empty($_GET['p']) && strpos($urlp, '/', -1)!= false ){
             $urlpfinal = substr($_SERVER['REQUEST_URI'], 0, -1);
-            var_dump($urlpfinal);
             http_response_code(301);
             header('LOCATION: '.$urlpfinal);
         }

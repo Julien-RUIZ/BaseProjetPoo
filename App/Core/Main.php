@@ -10,8 +10,7 @@ use App\Route\Route;
 class Main
 {
     public function start(){
-        //on démarre la session
-        session_start();
+        session_start();   //on démarre la session
         $urls = new Route();
         $urls->getanalyseurl();
     }
