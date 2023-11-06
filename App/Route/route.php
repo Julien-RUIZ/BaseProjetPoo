@@ -2,7 +2,7 @@
 
 namespace App\Route;
 
-class Route
+class Route extends DataTabRoute
 {
     private $url;
     private $urlTab=[];
@@ -10,30 +10,7 @@ class Route
     private $class;
     private $methode;
     private $id;
-    private $configRoute = [
-        [
-            'p'=>'Home' ,
-            'controller'=> 'Home',
-            'class' => 'AccueilController',
-            'methode'=>'pageprincipale' ],
-        [
-            'p'=>'' ,
-            'controller'=> 'Home',
-            'class' => 'AccueilController',
-            'methode'=>'pageprincipale' ],
-        [
-            'p'=>'Historique' ,
-            'controller'=> 'Historique',
-            'class' => 'TestController',
-            'methode'=>'testmethode'],
-        [
-            'p'=>'Historique/id' ,
-            'controller'=> 'Historique',
-            'class' => 'LectureIdController',
-            'methode'=>'lectureId'
-        ]
-    ];
-
+    
     /**
      * Méthode globale qui va récupérer l'url passé à celui se trouvant dans le tableau
      * @return void
@@ -94,8 +71,8 @@ class Route
 
     /**
      * Suite a l'hydratation comparaison d'url avec les informations du tableau afin de déterminer le lien de la classe
-     * @param $urlp c'est p de l'url que nous avons à un instant t
-     * @param $url c'est l'url que nous avons déterminé dans le tableau
+     * @param $urlp C'est p de l'url que nous avons à un instant t
+     * @param $url C'est l'url que nous avons déterminé dans le tableau
      * @return void
      */
     public function cmpUrl($urlp, $url){
