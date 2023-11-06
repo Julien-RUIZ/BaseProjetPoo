@@ -105,6 +105,7 @@ class Route
      * @param $urlp
      * @return void
      */
+    
     public function UrlIsNot($urlp){
         if(!in_array($urlp, $this->urlTab)) {
             echo 'il n\'y a pas l\'url dans le tableau, faire une 404';
