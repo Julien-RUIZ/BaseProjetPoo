@@ -40,8 +40,6 @@ class Route
      */
     public function getanalyseurl(){
         $recupUrl = $this->configRoute;
-        var_dump($_SERVER['REQUEST_URI']);
-
             if( isset($_GET['p'])){
                 $urlp =  htmlspecialchars($_GET['p']);
                 $this->id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
@@ -125,7 +123,6 @@ class Route
      * @return void
      */
     public function NoEndSlash($urlp){
-        var_dump($urlp);
         if(!empty($_GET['p']) && strpos($urlp, '/', -1)!= false ){
             $urlpfinal = substr($_SERVER['REQUEST_URI'], 0, -1);
             var_dump($urlpfinal);
