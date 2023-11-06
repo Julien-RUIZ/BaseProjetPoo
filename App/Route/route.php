@@ -40,11 +40,18 @@ class Route
      */
     public function getanalyseurl(){
         $recupUrl = $this->configRoute;
-        $urlp = htmlspecialchars($_GET['p']);
-        $this->id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
-        if ($this->id != null){
-            $urlp= $urlp."/id";
-        }
+        var_dump($_SERVER['REQUEST_URI']);
+
+            if( isset($_GET['p'])){
+                $urlp =  htmlspecialchars($_GET['p']);
+                $this->id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
+                if ($this->id != null) {
+                    $urlp = $urlp . "/id";
+                }
+            }elseif(!isset($_GET['p'])){
+                    $urlp = '';
+            }
+
         $this->NoEndSlash($_SERVER['REQUEST_URI']);
         $this->hydrateConfigRoute($recupUrl, $urlp);
     }
@@ -94,10 +101,10 @@ class Route
      * @return void
      */
     public function cmpUrl($urlp, $url){
-        if($urlp === $url){
-            $lien = '\\App\\Controllers\\'.$this->controller.'\\'.$this->class; //lien de la class pour l'instanciation
-            $this->searchMetClass($lien);
-        }
+            if($urlp === $url){
+                $lien = '\\App\\Controllers\\'.$this->controller.'\\'.$this->class; //lien de la class pour l'instanciation
+                $this->searchMetClass($lien);
+            }
     }
 
     /**
@@ -105,7 +112,7 @@ class Route
      * @param $urlp
      * @return void
      */
-    
+
     public function UrlIsNot($urlp){
         if(!in_array($urlp, $this->urlTab)) {
             echo 'il n\'y a pas l\'url dans le tableau, faire une 404';
@@ -118,8 +125,10 @@ class Route
      * @return void
      */
     public function NoEndSlash($urlp){
-        if(strpos($urlp, '/', -1)!= false){
+        var_dump($urlp);
+        if(!empty($_GET['p']) && strpos($urlp, '/', -1)!= false ){
             $urlpfinal = substr($_SERVER['REQUEST_URI'], 0, -1);
+            var_dump($urlpfinal);
             http_response_code(301);
             header('LOCATION: '.$urlpfinal);
         }

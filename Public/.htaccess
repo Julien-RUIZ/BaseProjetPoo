@@ -17,3 +17,4 @@ RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ index.php?p=$1/$2 [L]
 
 # Gère les cas où "p" est composé d'une seule partie sans ID
 RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?p=$1 [L]
+
