@@ -1,8 +1,0 @@
-# C'est une partie qui va me permettre de réécrire l'url sans avoir le /public
-# Pour toutes réalisations future changer ou modifier cette ligne
-
-RewriteEngine On
-
-# Réécrire l'URL avec un "/" final (si besoin)
-
-RewriteRule ^(.*)$ Public/$1 [L]

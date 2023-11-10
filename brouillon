@@ -1,0 +1,9 @@
+if(strpos($ModifiedUrl, 'id') != false){
+                echo 'il y a un id <br>';
+                echo substr_count($ModifiedUrl, 'id');
+                // Dans ce cas instanciation de la classe et utilisation de la méthode en passant les id en paramètres
+
+            }else{
+                echo 'il ny a pas d id';
+                // Dans ce cas instanciation de la classe et utilisation de la méthode
+            }

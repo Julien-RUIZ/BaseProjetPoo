@@ -3,20 +3,20 @@
 namespace App\Core;
 
 use App\Configuration\config;
-use App\Controllers\Historique\TestController;
 use App\Controllers\Home\AccueilController;
-use App\Route\Route;
+use App\Router\CmpModifUrlToPath;
+use App\Router\ModifUrlStructure;
+use App\Router\UrlExtraction;
 
 class Main
 {
     public function start(){
-        session_start();   //on démarre la session
-        $urls = new Route();
-        $urls->getanalyseurl();
+        $newurl = new UrlExtraction();
+        $tabUrl = $newurl->getSegmentUrlInArray();
+        $modifUrl = new ModifUrlStructure();
+        $modifUrl->ModifValueToId($tabUrl);
+        $CmpUrlRoute = new CmpModifUrlToPath();
+        $CmpUrlRoute->CmpPathRouteWithParam($modifUrl->getReferralUrl(), $modifUrl->getIdValues());
+
     }
-
-
-
-
-
 }
