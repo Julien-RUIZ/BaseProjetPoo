@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Router;
+namespace App\Configuration;
 
 class Request
 {
     private $ServeurValue;
+
 
     public function __construct(){
         $this->ServeurValue = $_SERVER;

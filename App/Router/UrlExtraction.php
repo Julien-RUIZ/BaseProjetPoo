@@ -2,6 +2,8 @@
 
 namespace App\Router;
 
+use App\Configuration\Request;
+
 class UrlExtraction
 {
 

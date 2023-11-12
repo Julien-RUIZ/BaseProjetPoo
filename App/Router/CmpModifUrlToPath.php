@@ -19,10 +19,10 @@ class CmpModifUrlToPath
             'class' => 'AccueilController',
             'methode' => 'pageprincipale'],
         [
-            'path' => 'Home/lire/id0/partir/id1',
+            'path' => '',
             'Namespace'=>'App\Controllers\Home',
-            'class' => '',
-            'methode' => '']
+            'class' => 'AccueilController',
+            'methode' => 'pageprincipale'],
     ];
 
     public function CmpPathRouteWithParam(string $ModifiedUrl, array $TabIdValues)

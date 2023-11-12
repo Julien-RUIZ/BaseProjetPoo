@@ -23,8 +23,18 @@ class Autoloader
         // trouve l'autoloader
         // on vérifie si le fichier existe
 
-        if(file_exists($fichier)){
+        if (file_exists($fichier)) {
             require_once $fichier;
+
+            // Vérifiez si la classe existe après le chargement du fichier
+            if (class_exists($class)) {
+                // Instanciation dynamique ici
+
+                // Faites quelque chose avec $instance si nécessaire
+            } else {
+                // Gérez le cas où la classe n'existe pas même après le chargement du fichier
+                // Cela peut se produire si le fichier ne contient pas la classe attendue
+            }
         }
     }
 }
