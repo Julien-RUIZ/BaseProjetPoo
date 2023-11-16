@@ -2,7 +2,7 @@
 
 namespace App\Router;
 
-class ModifUrlStructure
+class UrlModifStructure
 {
 
     private $IdValues = [];

@@ -7,7 +7,7 @@ use App\Configuration\Request;
 class UrlExtraction
 {
 
-    private $SegmentUrlInArray;
+    private $SegmentUrlInArray = [];
     private $RequestUri;
 
     /**
