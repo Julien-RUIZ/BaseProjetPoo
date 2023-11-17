@@ -12,6 +12,6 @@ class Main
     {
         $UrlPath = new UrlConnectionCenter();
         $UrlPath->getUrlManager();
-        $UrlPath->RequirePath();
+
     }
 }
