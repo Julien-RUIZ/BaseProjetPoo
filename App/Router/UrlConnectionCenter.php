@@ -4,8 +4,6 @@ namespace App\Router;
 
 class UrlConnectionCenter
 {
-
-
     /**
      * Méthode qui va centraliser les appels des différentes classes pour le fonctionnement du routeur
      * @return void
@@ -19,8 +17,5 @@ class UrlConnectionCenter
         $MergePath->MergeTab();
         $UrlPath = new UrlToPath($MergePath->getPNCM());
         $UrlPath->CmpPathRouteWithParam($modif->getReferralUrl(),$modif->getIdValues() );
-
     }
-
-
 }

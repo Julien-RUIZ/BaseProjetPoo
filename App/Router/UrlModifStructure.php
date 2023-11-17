@@ -26,7 +26,7 @@ class UrlModifStructure
     }
 
     /**
-     * Modification de l'url en remplaçant les valeurs numériques par un id et sauvegarde les valeurs dans un tableau
+     * Modification de l'url en remplaçant les valeurs numériques par un id0 à l'infini et sauvegarde les valeurs dans un tableau
      * @return void
      */
     public function ModifValueToId(array $tabUrlComponent){
