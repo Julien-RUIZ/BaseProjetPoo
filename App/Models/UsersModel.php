@@ -29,13 +29,12 @@ class UsersModel extends Model
      */
     public function setName(string $Name): bool
     {
-        if(preg_match("/^[a-zA-Z\- ]+$/", $Name)){
+        if(preg_match("/^[a-zA-ZÀ-ÿ\- ']+$/u", $Name)){
             $this->Name = $Name;
             return true;
         }else{
             return false;
         }
-
     }
 
     /**
@@ -78,7 +77,6 @@ class UsersModel extends Model
         }else{
             return false;
         }
-
     }
 
     /**
@@ -90,11 +88,21 @@ class UsersModel extends Model
     }
 
     /**
+     * Au moins une lettre minuscule
+     * Au moins une lettre majuscule
+     * Au moins un chiffre
+     * Au moins un caractère spécial parmi [@$!%*?&].
+     * Au moins 8 caractères
      * @param string $Password
      */
-    public function setPassword(string $Password): void
+    public function setPassword(string $Password): bool
     {
-        $this->Password = $Password;
+        if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/", $Password)){
+            $this->Password = password_hash($Password, PASSWORD_ARGON2I);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

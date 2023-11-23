@@ -113,7 +113,7 @@ class Model extends Db
      */
     public function FindBy($value){
 
-        $stmt = $this->initDb()->prepare('SELECT * FROM '.$this->table.' WHERE email = :value');
+        $stmt = $this->initDb()->prepare('SELECT * FROM '.$this->table.' WHERE Email = :value');
         $stmt->bindValue(':value', $value, PDO::PARAM_STR );
         $stmt->execute();
         $stmtFinal = $stmt->fetch();
@@ -212,6 +212,7 @@ class Model extends Db
      */
     public function hydrate($donnees)
     {
+        $errorRematching=[];
         foreach ($donnees as $key => $value){
             // On récupère le nom du setter correspondant à l'attribut.
             $method = 'set'.ucfirst($key);
@@ -219,10 +220,10 @@ class Model extends Db
             if (method_exists($this, $method)){
                 // On appelle le setter.
                 if($this->$method($value) === false){
-                    return false;
+                    $errorRematching[]=$key;
                 }
             }
         }
-        return $this;
+        return $errorRematching;
     }
 }
