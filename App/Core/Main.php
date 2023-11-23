@@ -10,6 +10,7 @@ class Main
 {
     public function start()
     {
+        session_start();
         $UrlPath = new UrlConnectionCenter();
         $UrlPath->getUrlManager();
 

@@ -6,11 +6,9 @@ class Request
 {
     private $ServeurValue;
 
-
     public function __construct(){
         $this->ServeurValue = $_SERVER;
     }
-
     /**
      * @return mixed
      */
@@ -18,5 +16,4 @@ class Request
     {
         return $this->ServeurValue[$param];
     }
-
 }
