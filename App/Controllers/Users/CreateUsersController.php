@@ -20,6 +20,7 @@ class CreateUsersController
                 $tableauCreate = ['Name'=>$Name, 'FirstName'=>$Prenom, 'Email'=>$Email, 'Password'=>$Password, 'Birthday'=>$DateAnniv];
                 $emailInfo = new EmailInfos();
                 $TestEmail = $emailInfo->EmailExist($Email); //test si le mail existe dans la bdd
+
                 if($TestEmail == false){ //si le mail n'existe pas
                     $user = new UsersModel();
                     if(empty($user->hydrate($tableauCreate))){ //si liste d'erreur de l'hydratation est vide création du user
@@ -39,8 +40,17 @@ class CreateUsersController
                     exit();
                 }
             }
+        $this->RenderFormCreate();
+    }
+
+    /**
+     * Formulaire de création de compte
+     * @return null
+     */
+    public function RenderFormCreate(){
         $form = new Form();
         include_once FORM.'/UserForm/Create.php';
         return Render::View('Users/CreateUsers', ['form'=>$form->create()], 'LoginLogoutPage');
     }
+
 }
