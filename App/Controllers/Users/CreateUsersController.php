@@ -18,15 +18,14 @@ class CreateUsersController
                 $Password = $_POST['password'];
                 $DateAnniv = htmlspecialchars($_POST['birthday']);
                 $tableauCreate = ['Name'=>$Name, 'FirstName'=>$Prenom, 'Email'=>$Email, 'Password'=>$Password, 'Birthday'=>$DateAnniv];
-
                 $emailInfo = new EmailInfos();
                 $TestEmail = $emailInfo->EmailExist($Email); //test si le mail existe dans la bdd
                 if($TestEmail == false){ //si le mail n'existe pas
                     $user = new UsersModel();
-                    if(empty($user->hydrate($tableauCreate))){ //si liste vide création du user
+                    if(empty($user->hydrate($tableauCreate))){ //si liste d'erreur de l'hydratation est vide création du user
                         $user->create($user);
-                        $_SESSION['validation'] = 'Votre enregistrement est validé !';
-                        Redirect::redirectTo(URLBASE);
+                        $_SESSION['validation'] = 'Votre enregistrement est validé. Connectez vous afin de profiter de tous les avantages du site.';
+                        Redirect::redirectTo(URLBASE.'/Users/Login');
                     }elseif(!empty($user->hydrate($tableauCreate))){ //si liste n'est pas vide message d'erreur
                         $errors = implode(' , ', $user->hydrate($tableauCreate));
                         $_SESSION['erreur'] = 'Merci de renseigner les champs en respectant l\'ecriture pour les champs suivant : '.$errors;
@@ -39,10 +38,9 @@ class CreateUsersController
                     Redirect::redirectTo(URLBASE.'/Users/Registration');
                     exit();
                 }
-
             }
         $form = new Form();
         include_once FORM.'/UserForm/Create.php';
-        return Render::View('Users/CreateUsers', ['form'=>$form->create()], 'StandardPage');
+        return Render::View('Users/CreateUsers', ['form'=>$form->create()], 'LoginLogoutPage');
     }
 }

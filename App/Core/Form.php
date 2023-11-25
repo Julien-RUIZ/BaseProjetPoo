@@ -98,6 +98,7 @@ class Form
         return $this;
     }
 
+
     /**
      * Ajout d'un champ input
      * @param string $type

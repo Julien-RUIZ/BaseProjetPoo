@@ -1,11 +1,10 @@
 
 
-<h1>Formulaire d'inscription</h1>
+
 <div class="container">
-    <?php if(!empty($_SESSION['erreur'])): ?>
-        <div class="alert alert-danger" role="alert">
-            <?php echo $_SESSION['erreur']; unset($_SESSION['erreur']); ?>
-        </div>
-    <?php endif; ?>
+    <h1 class="mb-5">Formulaire d'inscription</h1>
+    <?php require_once MESSAGE_SESSION.'/SessionMessage.php' ?>
+
     <?php echo $form ?>
+
 </div>

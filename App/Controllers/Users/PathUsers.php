@@ -15,6 +15,11 @@ $PathUsers = [
         'path' => 'Users/Login',
         'namespace'=>'App\Controllers\Users',
         'class' => 'LoginUsersController',
-        'methode' => 'LoginUser'
+        'methode' => 'LoginUser'],
+    [
+        'path' => 'Users/Logout',
+        'namespace'=>'App\Controllers\Users',
+        'class' => 'LogoutUsersController',
+        'methode' => 'LogoutUser'
     ]
 ];

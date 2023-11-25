@@ -38,7 +38,7 @@ class SearchAndMergePaths
 
     /**
      * Fonction qui va récupérer la liste des fichiers se trouvant dans le dossier controller.
-     * CONTR est à déterminer dans le fichier Configuration/Const.php
+     * CONTR est une contstante à déterminer dans votre projet.
      * @return void
      */
     public function RequirePath(){
