@@ -3,12 +3,20 @@
         <a class="navbar-brand" href="<?php echo URLBASE ?>">Baseprojetpoo</a>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo URLBASE ?>">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URLBASE.'/soft' ?>">Soft</a>
-                </li>
+                <?php if(empty($_SESSION['Id'])): ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?php echo URLBASE ?>">Home</a>
+                    </li>
+                <?php endif; ?>
+                <?php if(!empty($_SESSION['Id'])): ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?php echo URLBASE ?>">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo URLBASE.'/soft' ?>">Soft</a>
+                    </li>
+                <?php endif; ?>
+
             </ul>
             <ul class="navbar-nav mr-auto">
                 <?php if(empty($_SESSION['Id'])): ?>
