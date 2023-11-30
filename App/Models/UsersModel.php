@@ -11,6 +11,11 @@ class UsersModel extends Model
     protected string $Email;
     protected string $Password;
     protected string $Birthday;
+    protected string $Address;
+    protected string $PostalCode;
+    protected string $City;
+    protected string $Mobile;
+
 
     public function __construct(){
         $this->table = 'users';
@@ -116,8 +121,49 @@ class UsersModel extends Model
     /**
      * @param string $Birthday
      */
-    public function setBirthday(string $Birthday): void
+    public function setBirthday(string $Birthday)
     {
         $this->Birthday = $Birthday;
     }
+    public function getAddress(): string
+    {
+        return $this->Address;
+    }
+
+    public function setAddress(string $Address): void
+    {
+        $this->Address = $Address;
+    }
+
+    public function getPostalCode(): string
+    {
+        return $this->PostalCode;
+    }
+
+    public function setPostalCode(string $PostalCode): void
+    {
+        $this->PostalCode = $PostalCode;
+    }
+
+    public function getCity(): string
+    {
+        return $this->City;
+    }
+
+    public function setCity(string $City): void
+    {
+        $this->City = $City;
+    }
+
+    public function getMobile(): string
+    {
+        return $this->Mobile;
+    }
+
+    public function setMobile(string $Mobile)
+    {
+        $this->Mobile = $Mobile;
+    }
+
+
 }

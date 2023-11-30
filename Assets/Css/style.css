@@ -1,0 +1,17 @@
+
+.navbar{
+    background-color: rgb(37, 38, 54);
+    padding: 20px;
+}
+.navbar a{
+    color: aliceblue;
+}
+
+.nav-link:hover {
+    color: green;
+}
+
+.navbar-collapse{
+    display: flex;
+    justify-content: space-between;
+}

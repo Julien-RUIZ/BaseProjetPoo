@@ -42,7 +42,7 @@ class Model extends Db
         $stmt = $this->initDb()->prepare('SELECT * FROM '.$this->table.' WHERE id = :id');
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $stmtFinal = $stmt->fetchAll();
+        $stmtFinal = $stmt->fetch();
 
         return $stmtFinal;
         //var_dump($stmtFinal);
@@ -156,17 +156,17 @@ class Model extends Db
      */
     Public function Update($id, $tableauUpdate ){
         $ChampValue = [] ;
-
         foreach ($tableauUpdate as $champ => $value){
-            $ChampValue[] = $champ. '= :'.$champ ;
+            if($champ!='table'){
+                $ChampValue[] = $champ. '= :'.$champ ;
+            }
         }
         $listeModif = implode(', ', $ChampValue);
-
         $stmt = $this->initDb()->prepare('UPDATE '.$this->table.' SET '.$listeModif.' WHERE id = :id');
         $this->BindValue($tableauUpdate, $stmt);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $final1 = $stmt->execute();
-//var_dump($final1);
+        //var_dump($final1);
     }
 //************************************************************************************************
 

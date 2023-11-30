@@ -1,6 +1,8 @@
 
-
 <div class="container">
     <?php require_once MESSAGE_SESSION.'/SessionMessage.php' ?>
 </div>
-<?php var_dump($_SESSION); ?>
+
+<?php
+echo $test;
+var_dump($_SESSION); ?>

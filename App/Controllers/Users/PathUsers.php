@@ -2,10 +2,10 @@
 
 $PathUsers = [
     [
-        'path' => 'Users',
+        'path' => 'Users/Account',
         'namespace'=>'App\Controllers\Users',
         'class' => 'UsersController',
-        'methode' => 'getUser'],
+        'methode' => 'getUserInfo'],
     [
         'path' => 'Users/Registration',
         'namespace'=>'App\Controllers\Users',
@@ -20,6 +20,16 @@ $PathUsers = [
         'path' => 'Users/Logout',
         'namespace'=>'App\Controllers\Users',
         'class' => 'LogoutUsersController',
-        'methode' => 'LogoutUser'
+        'methode' => 'LogoutUser'],
+    [
+        'path' => 'Users/Update',
+        'namespace'=>'App\Controllers\Users',
+        'class' => 'UpdateUsersController',
+        'methode' => 'UpdateUser'],
+    [
+        'path' => 'Users/UpdatePassword',
+        'namespace'=>'App\Controllers\Users',
+        'class' => 'UpdatePasswordUsersController',
+        'methode' => 'UpdatePassword'
     ]
 ];

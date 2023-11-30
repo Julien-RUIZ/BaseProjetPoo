@@ -1,4 +1,5 @@
-<?php require_once COMPONENTS.'/Header.php' ?>
+<?php require_once COMPONENTS.'/Header.php';
+require_once COMPONENTS.'/NavbarMenu.php'; ?>
 
 <?php echo $contenu; ?>
 

@@ -2,13 +2,19 @@
 
 namespace App\Controllers\Users;
 
+use App\Core\Form;
+use App\Core\Render;
 use App\Models\UsersModel;
 
 class UsersController
 {
-    public function getUser(){
+    public function getUserInfo(){
         $users = new UsersModel();
-        $data = $users->FindAll();
-        var_dump($data);
+        $data = $users->FindById($_SESSION['Id']);
+        Render::View('Users/AccountUsers', ['data'=>$data], 'SoftPage');
     }
 }
+
+
+
+
