@@ -1,9 +1,19 @@
 <?php
-const CONTR = 'C:\wamp64\www\BaseProjetPoo\App\Controllers';
-const VIEW  = 'C:\wamp64\www\BaseProjetPoo\App\Views\\';
-const COMPONENTS = 'C:\wamp64\www\BaseProjetPoo\App\Views\Template\Components';
-const FORM = 'C:\wamp64\www\BaseProjetPoo\App\Form';
-const ROOT = 'C:\wamp64\www\BaseProjetPoo';
-const URLBASE = 'http://baseprojetpoo';
-const MESSAGE_SESSION = 'C:\wamp64\www\BaseProjetPoo\App\Views\Template\MessageManagement';
-const ASSET = 'C:\wamp64\www\BaseProjetPoo\Assets';
+
+//********************************************************************
+//Chemin de base du fichier a configurer :
+const BASECONST = 'C:\wamp64\www\BaseProjetPoo\App';
+//********************************************************************
+const CONTR = BASECONST.'\Controllers';
+const VIEW  = BASECONST.'\Views\\';
+const COMPONENTS = BASECONST.'\Views\Template\Components';
+const FORM = BASECONST.'\Form';
+const MESSAGE_SESSION = BASECONST.'\Views\Template\MessageManagement';
+
+//********************************************************************
+//Url de base a configurer :
+const URLBASE = 'http://localhost/BaseProjetPoo';
+//********************************************************************
+const CSS = URLBASE.'/Assets/Css/style.css';
+const JS = URLBASE.'/Assets/Js/javascript.js';
+

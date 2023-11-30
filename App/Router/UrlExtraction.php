@@ -36,8 +36,7 @@ class UrlExtraction
      */
     public function extract(){
         $request = new Request();
-        // Récupération de l'url
-        $this->RequestUri = $request->getServeurValue('REQUEST_URI');
+        $this->RequestUri =$request->getP();
         //Séparation de l'url et rentrer données dans un tableau
         $this->SegmentUrlInArray = explode('/', trim($this->RequestUri, '/'));
     }
