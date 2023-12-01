@@ -1,7 +1,10 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light row">
+        <div class="col-2">
+            <a class="navbar-brand" href="<?php echo URLBASE ?>">Baseprojetpoo</a>
+        </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="<?php echo URLBASE ?>">Baseprojetpoo</a>
-        <div class="collapse navbar-collapse" id="navbarText">
+        <div class="collapse navbar-collapse col-10" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <?php if(empty($_SESSION['Id'])): ?>
                     <li class="nav-item active">
@@ -38,5 +41,5 @@
             </ul>
         </div>
     </nav>
-
+</div>
 

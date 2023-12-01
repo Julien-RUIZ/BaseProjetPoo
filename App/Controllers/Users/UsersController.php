@@ -11,7 +11,7 @@ class UsersController
     public function getUserInfo(){
         $users = new UsersModel();
         $data = $users->FindById($_SESSION['Id']);
-        Render::View('Users/AccountUsers', ['data'=>$data], 'SoftPage');
+        Render::View('Users/AccountUsers', ['data'=>$data], 'LoginlogoutPage');
     }
 }
 
