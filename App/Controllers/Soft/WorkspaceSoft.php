@@ -10,6 +10,7 @@ class WorkspaceSoft
 {
     public function Workespace(){
         if(RestrictedAccess::SoftwareAccess()===true){
+            $test = 'Page soft avec info sur les produits';
             if(!empty($test)){
                 Render::View('Soft/Soft', ['test'=>$test], 'SoftPage');
             }else{
