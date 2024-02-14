@@ -94,10 +94,20 @@ class Form
         $this->formCode .= "<label for='$for'";
         //on ajoute les attributs
         $this->formCode .= $attributs ? $this->ajoutAttributs($attributs) : '';
-        $this->formCode .= ">".$texte."</label><br>";
+        $this->formCode .= ">".$texte."</label>";
         return $this;
     }
 
+    public function ajoutDiv(array $attributs = []){
+        $this->formCode .= "<div";
+        $this->formCode .= $attributs ? $this->ajoutAttributs($attributs) : '';
+        $this->formCode .= ">";
+        return $this;
+    }
+    public function ajoutDivEnd(){
+        $this->formCode .= "</div>";
+        return $this;
+    }
 
     /**
      * Ajout d'un champ input
@@ -111,7 +121,7 @@ class Form
         // On ouvre la balise
         $this->formCode .= "<input type='$type' name='$nom'";
         // On ajoute les attributs
-        $this->formCode .= $attributs ? $this->ajoutAttributs($attributs).'><br>' : '><br>';
+        $this->formCode .= $attributs ? $this->ajoutAttributs($attributs).'>' : '>';
         return $this;
     }
 

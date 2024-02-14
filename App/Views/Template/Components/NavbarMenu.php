@@ -16,7 +16,7 @@
                         <a class="nav-link" href="<?php echo URLBASE ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URLBASE.'/soft' ?>">Soft</a>
+                        <a class="nav-link" href="<?php echo URLBASE.'/Documents' ?>">Documents</a>
                     </li>
                 <?php endif; ?>
 

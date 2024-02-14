@@ -2,14 +2,13 @@
 
 namespace App\Controllers\Users;
 
-use App\Core\Form;
 use App\Core\Render;
-use App\Models\UsersModel;
+use App\Entity\Users;
 
 class UsersController
 {
     public function getUserInfo(){
-        $users = new UsersModel();
+        $users = new Users();
         $data = $users->FindById($_SESSION['Id']);
         Render::View('Users/AccountUsers', ['data'=>$data], 'LoginlogoutPage');
     }

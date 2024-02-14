@@ -1,0 +1,95 @@
+<nav>
+    <ul>
+            <!--Affichage liste des dossiers avec leurs contenus // SubfolderController.php-->
+        <?php if (isset($folders) && isset($subfolders) && isset($documentsroot) && isset($id_dossier)): ?>
+            <?php foreach ($folders as $folder): ?>
+                <a href="<?php echo URLBASE.'/Documents/'.$folder->numfolder ?>">
+                    <li>
+                        <?php if ($id_dossier != $folder->Id): ?> <!-- condition si l'id dans l'url renvoyé par SubFoldersController/ChoiceOfSubfolders($id) est différent de l'id du dossier -->
+                            <div>D : <?php echo $folder->Titre ?></div>
+                        <?php else: ?> <!--S'il est identique retourne les sous dossier (subfolders) provenant du même controller-->
+                            <div>
+                                <a href="<?php echo URLBASE.'/Documents/' ?>">
+                                    <div class="validFolder">D : <?php echo $folder->Titre ?></div><!--lien du dossier pour le retour a la racine-->
+                                </a>
+                            </div>
+
+                            <ul> <!--lister les sous dossiers à récupérer en bdd-->
+                                <?php foreach ($subfolders as $subfolder): ?>
+                                    <a href="<?php echo URLBASE.'/Documents/'.$subfolder->numfolder.'/'.$subfolder->numSubfolder ?>">
+                                        <li>D : <?php echo $subfolder->nomSousdossier ?></li>
+                                    </a>
+                                <?php endforeach; ?>
+                            </ul>
+                            <ul> <!--lister les documents à récupérer en bdd // ReadDocumentController.php -> 'Documents/id0/id1/id2' avec id1=0 car document dans folder-->
+                                <?php foreach ($documentsroot as $documentroot): ?>
+                                    <?php $id1 = 0 ?>
+                                    <a href="<?php echo URLBASE.'/Documents/'.$documentroot->numfolder.'/'.$id1.'/'.$documentroot->numdocfolder ?>">
+                                        <li>
+                                            <div><?php echo $documentroot->TitreDoc ?></div>
+                                        </li>
+                                    </a>
+                                <?php endforeach; ?>
+                            </ul>
+                            <div>
+                                <?php echo $addsubfolder ?>
+                            </div>
+                            <div>
+                                <?php echo $deletesubfolder ?>
+                            </div>
+                            <div>
+                                <?php echo $updateFolder ?>
+                            </div>
+                            <div class="AjoutDoc">
+                                <a href="<?php echo URLBASE.'/Documents/'.$folder->numfolder.'/Ajout' ?>">
+                                    ->Ajouter document
+                                </a>
+                            </div>
+
+                        <?php endif; ?>
+                    </li>
+                </a>
+            <?php endforeach; ?>
+        <?php endif;?>
+    </ul>
+</nav>
+</div>
+<div class="col-lg-10">
+    <?php require_once MESSAGE_SESSION.'/SessionMessage.php' ?>
+    <div>
+        <?php if (empty($docs) && !isset($docsession)): ?>
+
+            <h2 class="my-5">Merci de sélectionner un document</h2>
+
+        <?php elseif (empty($docs) && isset($docsession)): ?>
+
+            <h2 class="my-5"><?php echo $docsession['TitreDoc'] ?></h2>
+            <p><?php echo $docsession['TextDoc'] ?></p>
+            <p>Date de réalisation : <?php echo $docsession['DateOfWriting'] ?></p>
+            <?php if($docsession['ModifDate'] != Null){
+                echo '<p>Date de modification le '.$docsession['ModifDate'].'</p>';
+            }?>
+            <a  href="<?php echo URLBASE.'/Documents/'.$docsession['idnumfolder'].'/'.$docsession['idnumSubfolder'].'/'.$docsession['idnumdoc'] ?>">
+                <button class="mt-2">Indiquer le chemin sur le menu de gauche</button>
+            </a>
+
+        <?php else: ?>
+
+            <?php foreach ($docs as $doc): ?>
+                <h2 class="my-5"><?php echo $doc->TitreDoc ?></h2>
+                <p><?php echo $doc->TextDoc ?></p>
+                <p>Date de réalisation : <?php echo $doc->DateOfWriting ?></p>
+                <?php if($doc->ModifDate != Null){
+                    echo '<p>Date de modification le '.$doc->ModifDate.'</p>';
+                }?>
+                <a  href="<?php echo URLBASE.'/Documents/'.$doc->IdFolder.'/0/'.$doc->IdDoc.'/Delete'?>">
+                    <button class="mt-2">Supprimer le document</button>
+                </a>
+            <?php endforeach; ?>
+
+        <?php endif; ?>
+
+    </div>
+</div>
+
+

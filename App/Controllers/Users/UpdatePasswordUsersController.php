@@ -5,7 +5,7 @@ namespace App\Controllers\Users;
 use App\Core\Form;
 use App\Core\Redirect;
 use App\Core\Render;
-use App\Models\UsersModel;
+use App\Entity\Users;
 
 class UpdatePasswordUsersController
 {
@@ -16,7 +16,7 @@ class UpdatePasswordUsersController
                $tableauCreate = [
                    'Password'=>htmlspecialchars($_POST['Password1']),
                ];
-               $user = new UsersModel();
+               $user = new Users();
                $user->hydrate($tableauCreate);
                $user->Update($_SESSION['Id'], $user);
                $_SESSION['validation']='Votre mot de passe à été corrigé avec succès !!';

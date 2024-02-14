@@ -35,6 +35,7 @@ class UrlToPath
                     break;
                 }else{
                     call_user_func([$inst, $methode],$TabIdValues);
+                    break;
                 }
             }
         }

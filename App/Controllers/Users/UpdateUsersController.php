@@ -5,7 +5,7 @@ namespace App\Controllers\Users;
 use App\Core\Form;
 use App\Core\Redirect;
 use App\Core\Render;
-use App\Models\UsersModel;
+use App\Entity\Users;
 
 class UpdateUsersController
 {
@@ -25,7 +25,7 @@ class UpdateUsersController
                 'City'=>htmlspecialchars($_POST['City']),
                 'Mobile'=>htmlspecialchars($_POST['Mobile']),
                 ];
-            $user = new UsersModel();
+            $user = new Users();
             $user->hydrate($tableauCreate);
             $user->Update($_SESSION['Id'], $user);
             $this->getUserInfo();
@@ -51,7 +51,7 @@ class UpdateUsersController
      * @return void
      */
     public function getUserInfo(){
-        $user = new UsersModel();
+        $user = new Users();
         $update = $user->FindById($_SESSION['Id']);
         $user->hydrate($update);
         $this->RenderFormUpdate($user);

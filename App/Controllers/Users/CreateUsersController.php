@@ -6,7 +6,7 @@ use App\Core\EmailInfos;
 use App\Core\Form;
 use App\Core\Redirect;
 use App\Core\Render;
-use App\Models\UsersModel;
+use App\Entity\Users;
 
 class CreateUsersController
 {
@@ -22,7 +22,7 @@ class CreateUsersController
                 $TestEmail = $emailInfo->EmailExist($Email); //test si le mail existe dans la bdd
 
                 if($TestEmail == false){ //si le mail n'existe pas
-                    $user = new UsersModel();
+                    $user = new Users();
                     if(empty($user->hydrate($tableauCreate))){ //si liste d'erreur de l'hydratation est vide création du user
                         $user->create($user);
                         $_SESSION['validation'] = 'Votre enregistrement est validé. Connectez vous afin de profiter de tous les avantages du site.';

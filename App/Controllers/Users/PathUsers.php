@@ -30,6 +30,15 @@ $PathUsers = [
         'path' => 'Users/UpdatePassword',
         'namespace'=>'App\Controllers\Users',
         'class' => 'UpdatePasswordUsersController',
-        'methode' => 'UpdatePassword'
-    ]
+        'methode' => 'UpdatePassword'],
+    [
+        'path' => 'Users/ValidationDelete',
+        'namespace'=>'App\Controllers\Users',
+        'class' => 'DeleteUsersController',
+        'methode' => 'validationDelete'],
+    [
+        'path' => 'Users/Delete',
+        'namespace'=>'App\Controllers\Users',
+        'class' => 'DeleteUsersController',
+        'methode' => 'DeleteUser']
 ];

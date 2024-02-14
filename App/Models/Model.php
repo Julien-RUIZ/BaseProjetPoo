@@ -15,7 +15,7 @@ class Model extends Db
      * 2/ On retourne $db, l'instanciation de PDO
      * @return \PDO
      */
-    private function initDb(){
+    public function initDb(){
         $requet = Db::getInstance();
         return self::$db;
     }
@@ -210,6 +210,7 @@ class Model extends Db
      * @param array $donnees Tableau associatif des données
      * @return self Retourne l'objet hydraté
      */
+
     public function hydrate($donnees)
     {
         $errorRematching=[];

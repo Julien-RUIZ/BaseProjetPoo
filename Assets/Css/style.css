@@ -20,6 +20,13 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+/*-------------------------Nav bar vertical------------------------------------*/
+.navVertical{
+    border: 1px solid black;
+    height: 100vh;
+}
+
+
 
 /*-------------------------Account users---------------------------------*/
 .GroupeInfoPerso{
@@ -29,17 +36,30 @@ h1{
 label{
     font-weight: bold;
 }
-/*-------------------------SoftPage------------------------------------------*/
+/*-------------------------DocumentPage------------------------------------------*/
 
 .textnave{
     background-color: #F9F7F3;
     height: 100vh;
 }
 
-
-
-
-
+.validationDelete{
+    text-align: center;
+}
+.validationDelete a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.DocumentPage a{
+    text-decoration: none;
+    color: black;
+}
+.DocumentPage a :hover{
+    color: green;
+}
+.validFolder, .validSubfolder{
+    color: green;
+}
 
 
 

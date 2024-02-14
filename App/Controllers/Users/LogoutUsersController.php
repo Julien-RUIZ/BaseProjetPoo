@@ -13,7 +13,6 @@ class LogoutUsersController
     public function LogoutUser(){
         session_destroy();
         session_unset();
-        $_SESSION['validation'] = 'Vous vous êtes déconnecté avec succès, à bientôt !!';
         Redirect::redirectTo(URLBASE);
         exit();
     }

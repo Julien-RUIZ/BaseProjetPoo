@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use App\Models\UsersModel;
+use App\Entity\Users;
 
 class EmailInfos
 {
@@ -12,7 +12,7 @@ class EmailInfos
      * @return false|mixed
      */
     public function EmailExist(string $Email){
-        $userinfo = new UsersModel();
+        $userinfo = new Users();
         $userTest = $userinfo->FindBy($Email);
         if($userinfo->FindBy($Email) != false){
             return $userTest;

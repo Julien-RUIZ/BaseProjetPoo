@@ -17,6 +17,9 @@
                 <div class="col-6"><button><a href="<?php echo URLBASE.'/Users/Update' ?>">Modifier vos informations personnelles</a></button></div>
                 <div class="col-6"><button><a href="<?php echo URLBASE.'/Users/UpdatePassword' ?>">Changer votre mot de passe</a></button></div>
             </div>
+            <div>
+                <div class="col-12 "><button><a href="<?php echo URLBASE.'/Users/ValidationDelete' ?>">Supprimer utilisateur</a></button></div>
+            </div>
         </div>
 </div>
 

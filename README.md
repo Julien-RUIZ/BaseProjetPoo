@@ -1,4 +1,4 @@
-# BaseProjetPoo
+
 Projet d'un squelette pour la réalisation de site internet.
 
 Mise en place de composer pour l'Autoloader et la gestion de dépendance si besoin.
